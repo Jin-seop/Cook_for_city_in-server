@@ -29,6 +29,6 @@ Back-end
  ## giman, Lee / backend / member
  - GMail: giman979@gmail.com 
  - GitHub Id: leegiman911
- ## Ohyun, Kwon / backend / member
+ ## Ohyun, Kwon / frontend / member
  - GMail: ohyunsky@gmail.com
  - GitHub Id: @ohyun92
