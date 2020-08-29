@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.users.belongsTo(models.comments,{
-        foreignKey : "id",
-        as:"comments"
+        foreignKey : 'commentsid',
+        as:'users'
       })
       models.users.belongsToMany(models.recipe, { 
         foreignKey : 'userid',
         through : 'favorites',
-        as: "recipe"
+        as: 'recipe'
       });
     }
   };
