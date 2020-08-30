@@ -18,12 +18,12 @@ module.exports = (sequelize, DataTypes) => {
       models.users.belongsToMany(models.recipe, { 
         foreignKey : 'userid',
         through : 'favorites',
-        as: 'recipe'
+        as: 'Recipe'
       });
     }
   };
   users.init({
-    userid: DataTypes.INTEGER,
+    userid: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     commentsid: DataTypes.INTEGER

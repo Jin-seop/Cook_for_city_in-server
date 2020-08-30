@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.recipe.belongsTo(models.comments,{
         foreignKey : "commentsid",
-        as:"recipe"
+        as:"Recipe"
       });
       models.recipe.belongsToMany(models.users, { 
         foreignKey : "recipeid",
