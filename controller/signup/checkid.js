@@ -4,7 +4,11 @@ const db = require("../../models");
 module.exports = {
   post: (req, res) => {
       const {userid} = req.body;
-    db.Users.findOne({ where: { userid: userid } }).then((checkId) => {
+    db.users.findOne({ 
+      where: { 
+        userid: userid 
+      } 
+    }).then((checkId) => {
       if (checkId) {
         res.status(404).send("이미 존재하는 유저아이디 입니다");
       } else {

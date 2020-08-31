@@ -1,19 +1,23 @@
 const db = require("../../models");
+const crypto = require("crypto");
 
 // 회원가입 요청
 module.exports = {
   post: (req, res) => {
       const {userid, password, email} = req.body;
-
+      //비밀번호 암호화
       let secret1 = "쿡시인화이팅";
       const hash = crypto.createHmac("sha1", secret1);
       hash.update(password);
       let passwordHashed = hash.digest("hex");  
 
-    db.Users.findOne({ where: { userid: userid } }).then(
-      (checkUserId) => {
+    db.users.findOne({ 
+      where: { 
+        userid: userid 
+      } 
+    }).then((checkUserId) => {
         if (!checkUserId) {
-          db.Users.create({
+          db.users.create({
             userid: userid,
             password: passwordHashed,
             email: email,
