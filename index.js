@@ -7,6 +7,9 @@ const PORT = 5000;
 
 const signupRouter = require("./routes/signup");
 const loginRouter = require("./routes/login")
+const recipeRouter = require("./routes/recipe")
+const mypageRouter = require("./routes/mypage")
+
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -34,6 +37,8 @@ app.use("/a", (req, res) => {
 
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
+app.use('/mypage', mypageRouter);
+app.use('/recipe',recipeRouter)
 
 app.listen(PORT, () => {
     console.log(`server on ${PORT}`);
