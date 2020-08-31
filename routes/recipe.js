@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { recipeController } = require("../controller");
 
-// 로그인 요청
-router.get("/recipeinfo", recipeController.recipeinfo.get);
+// 레시피 검색 요청
+router.post("/recipesearch", recipeController.recipesearch.post);
 
 module.exports = router;
