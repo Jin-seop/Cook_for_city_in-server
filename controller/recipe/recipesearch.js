@@ -9,7 +9,8 @@ module.exports = {
           where : {
             meterial : { 
                 [Op.like] : "%" + meterial + "%"}
-          }
+          },
+          limit : 15
       }).then((recipesearch) => {
           res.status(200).send(recipesearch);
       }).catch(function (e) {
