@@ -7,6 +7,6 @@ const { loginController } = require("../controller");
 router.post("/signin", loginController.signin.post);
 
 // 로그아웃 요청
-router.post("/signout", loginController.signout.post);
+// router.post("/signout", loginController.signout.post);
 
 module.exports = router;
