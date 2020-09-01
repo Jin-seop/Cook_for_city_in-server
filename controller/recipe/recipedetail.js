@@ -9,6 +9,7 @@ module.exports = {
             title : title
           },
           attributes : [
+              "id",
               "title", 
               "meterial", 
               "recipe", 
@@ -22,8 +23,6 @@ module.exports = {
       }).then((recipedetail) => {
           if(recipedetail){
           res.status(200).send(recipedetail);
-          }else{
-              res.status(404).send("요청자료가 없습니다.")
           }
       }).catch(function (e) {
           console.log(e)

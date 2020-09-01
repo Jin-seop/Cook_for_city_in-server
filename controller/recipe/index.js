@@ -4,5 +4,6 @@ module.exports = {
     recipesearch : require("./recipesearch"),
     recipedetail : require("./recipedetail"),
     recipecomment : require("./recipecomment"),
-    recipecommentupdate : require("./recipecommentupdate")
+    recipecommentupdate : require("./recipecommentupdate"),
+    recipefavorites : require("./recipefavorite")
   };
