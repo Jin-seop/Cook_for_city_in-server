@@ -16,4 +16,8 @@ router.post("/recipecomment", recipeController.recipecomment.post);
 
 router.put("/recipecommentupdate", recipeController.recipecommentupdate.put);
 
+//레시피 즐겨찾기 추가
+
+router.post("/recipefavorites", recipeController.recipefavorites.post);
+
 module.exports = router;
