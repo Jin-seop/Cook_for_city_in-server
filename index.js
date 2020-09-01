@@ -36,7 +36,7 @@ app.use("/a", (req, res) => {
 });
 
 const materials = require("./seasonal materials.json");
-
+//게시판 제철재료 표시
 app.get("/recipe/materials", (req, res) => {
   let date_value = new Date();
   console.log(date_value.getMonth())
@@ -70,7 +70,7 @@ app.patch("/mypage/Leave", (req, res) => {
     res.status(404).send("잘못된 요청입니다. 다시 시도해 주시기 바랍니다.");
   }
 });
-
+// 유저 정보 수정
 app.put(("/mypage/setupPut"), (req, res) => {
   if (req.session.session_id) {
     db.users.update(
