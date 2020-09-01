@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 
       models.comments.belongsTo(models.recipe, {
         foreignKey : 'recipeid',
-        as : 'comments'
+        as : 'commentsrecipe'
       })
     }
   };

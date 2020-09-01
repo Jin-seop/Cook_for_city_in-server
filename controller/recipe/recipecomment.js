@@ -9,15 +9,18 @@ module.exports = {
             title : title
           }
       }).then((data) => {
-          console.log(data)
           db.comments.create({
               starpoint : starpoint,
               comment : comment,
+              userid : req.session.session_id,
+              recipeid : data.id
           }).then((result) => 
           res.status(201).send(result))
       }).catch(function (e) {
           console.log(e)
-      })
+       })
+  }else {
+    res.status(404).send("잘 못 요청하셨습니다.")
   }
 }
 };
