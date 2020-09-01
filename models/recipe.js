@@ -11,10 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.recipe.belongsTo(models.comments,{
-        foreignKey : "commentsid",
-        as:"Recipe"
-      });
+      models.recipe.hasMany(models.comments,{
+        foreignKey : 'recipeid',
+        as : 'comments'
+      })
+
       models.recipe.belongsToMany(models.users, { 
         foreignKey : "recipeid",
         through : 'favorites',
@@ -26,8 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     meterial: DataTypes.STRING,
     recipe: DataTypes.STRING,
-    recipe_img: DataTypes.STRING,
-    commentsid: DataTypes.INTEGER
+    recipe_img: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'recipe',

@@ -20,11 +20,6 @@ module.exports = {
       recipe_img: {
         type: Sequelize.STRING
       },
-      commentsid: {
-        type: Sequelize.INTEGER,
-        references : {model:'comments', key: 'id'},
-        onDelete : "CASCADE"
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
