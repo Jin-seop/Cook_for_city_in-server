@@ -16,7 +16,7 @@ module.exports = {
             ],
         include : [
             {model : db.users, as: "users", attributes: ["userid"]},
-            {model : db.comments, as: "comments", attributes: ["starpoint", "comment"],
+            {model : db.comments, as: "comments", attributes: ["id","starpoint", "comment", "createdAt"],
           include : [{model : db.users, as :"comments", attributes: ["userid"]}]}
         ]
       }).then((recipedetail) => {
