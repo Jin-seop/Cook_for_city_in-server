@@ -20,4 +20,8 @@ router.put("/recipecommentupdate", recipeController.recipecommentupdate.put);
 
 router.post("/recipefavorites", recipeController.recipefavorites.post);
 
+//레시피 즐겨찾기 삭제
+
+router.delete("/recipefavoritesdelete", recipeController.recipefavoritesdelete.delete);
+
 module.exports = router;
