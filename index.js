@@ -4,7 +4,7 @@ const bodyParser = require("body-parser")
 const cors = require("cors");
 const app = express();
 const PORT = 5000;
-
+const db = require("./models");
 const signupRouter = require("./routes/signup");
 const loginRouter = require("./routes/login")
 const recipeRouter = require("./routes/recipe")
@@ -47,6 +47,29 @@ app.get("/recipe/materials", (req, res) => {
   }
 })
 
+// 회원 탈퇴 요청
+app.patch("/mypage/Leave", (req, res) => {
+  const deleted = "deleted";
+  if (req.session.session_id) {
+    db.users.findOne({ where: { id: req.session.session_id } }).then(
+      (userData) => {
+        db.users.update(
+          {
+            userid: deleted,
+            email: userData.email,
+            password: userData.password,
+          },
+          { where: { id: req.session.session_id } }
+        ).then((result) => {
+          req.session.destroy();
+          res.status(200).send(result);
+        });
+      }
+    );
+  } else {
+    res.status(404).send("잘못된 요청입니다. 다시 시도해 주시기 바랍니다.");
+  }
+});
 
 
 app.use('/signup', signupRouter);
