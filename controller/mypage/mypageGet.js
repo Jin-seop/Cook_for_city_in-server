@@ -5,7 +5,7 @@ module.exports = {
   get: (req, res) => {
     // 저장된 세션아이디 확인
     if (req.session.session_id) {
-      db.users.findone({
+      db.users.findAll({
         where: { id: req.session.session_id },
         attributes: ["userid"],
         include: [
