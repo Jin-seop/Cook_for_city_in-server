@@ -6,7 +6,7 @@ module.exports = {
     if(req.session.session_id){
       db.recipe.findOne({
           where : {
-            title : title
+            title : title 
           }
       }).then((data) => {
           db.comments.create({

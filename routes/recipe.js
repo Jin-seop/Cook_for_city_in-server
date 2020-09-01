@@ -12,4 +12,8 @@ router.post("/recipedetail", recipeController.recipedetail.post);
 // 레시피 별점 및 댓글
 router.post("/recipecomment", recipeController.recipecomment.post);
 
+//별점 댓글 수정
+
+router.put("/recipecommentupdate", recipeController.recipecommentupdate.put);
+
 module.exports = router;
