@@ -22,6 +22,6 @@ router.post("/recipefavorites", recipeController.recipefavorites.post);
 
 //레시피 즐겨찾기 삭제
 
-router.delete("/recipefavoritesdelete", recipeController.recipefavoritesdelete.delete);
+router.put("/recipefavoritesdelete", recipeController.recipefavoritesdelete.put);
 
 module.exports = router;
