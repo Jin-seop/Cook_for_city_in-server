@@ -14,6 +14,18 @@ module.exports = {
       comment: {
         type: Sequelize.STRING
       },
+      userid : {
+        allowNull : false,
+        type : Sequelize.INTEGER,
+        references : { model: 'users', key: 'id'},
+        onDelete : "CASCADE"
+      },
+      recipeid : {
+        allowNull : false,
+        type : Sequelize.INTEGER,
+        references : { model: 'recipes', key: 'id'},
+        onDelete : "CASCADE"
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

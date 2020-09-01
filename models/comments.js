@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, INTEGER
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class comments extends Model {
@@ -11,19 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.comments.hasMany(models.users,{
-        foreignKey : "commentsid",
-        as: "users"
-      });
-      models.comments.hasMany(models.recipe,{
-        foreignKey: "commentsid",
-        as:"Recipe"
+      models.comments.belongsTo(models.users, {
+        foreignKey : 'userid',
+        as : 'comments'
+      })
+
+      models.comments.belongsTo(models.recipe, {
+        foreignKey : 'recipeid',
+        as : 'comments'
       })
     }
   };
   comments.init({
     starpoint: DataTypes.INTEGER,
-    comment: DataTypes.STRING
+    comment: DataTypes.STRING,
+    userid : DataTypes.INTEGER,
+    recipeid : DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'comments',

@@ -11,10 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.users.belongsTo(models.comments,{
-        foreignKey : 'commentsid',
-        as:'users'
+      models.users.hasMany(models.comments,{
+        foreignKey : 'userid',
+        as : 'comments'
       })
+
       models.users.belongsToMany(models.recipe, { 
         foreignKey : 'userid',
         through : 'favorites',
@@ -25,8 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   users.init({
     userid: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    commentsid: DataTypes.INTEGER
+    password: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'users',
