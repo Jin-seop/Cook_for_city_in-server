@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('comments', {
+    await queryInterface.createTable('cookcomments', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,7 +17,7 @@ module.exports = {
       userid : {
         allowNull : false,
         type : Sequelize.INTEGER,
-        references : { model: 'users', key: 'id'},
+        references : { model: 'Users', key: 'id'},
         onDelete : "CASCADE"
       },
       recipeid : {
@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('comments');
+    await queryInterface.dropTable('cookcomments');
   }
 };

@@ -3,7 +3,7 @@ const db = require("../../models");
 module.exports = {
     put: (req, res) => {
         if (req.session.session_id) {
-            db.users.update(
+            db.Users.update(
                 {
                     userid: req.body.userid,
                     password: req.body.password,

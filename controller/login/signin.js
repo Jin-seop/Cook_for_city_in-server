@@ -11,7 +11,7 @@ module.exports = {
     hash.update(req.body.password);
     let passwordHashed = hash.digest("hex");
 
-    db.users.findOne({ where: { userid: userid } }).then(
+    db.Users.findOne({ where: { userid: userid } }).then(
       (checkUser) => {
         if (checkUser) {
           if (checkUser.password === passwordHashed) {

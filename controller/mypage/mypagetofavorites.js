@@ -11,13 +11,13 @@ module.exports = {
         },
         attributes: ["title", "recipe", "recipe_img"],
         include: [
-          { model: db.users, as: "users", attributes: ["userid"] },
+          { model: db.Users, as: "Users", attributes: ["userid"] },
           {
-            model: db.comments,
-            as: "comments",
+            model: db.cookcomment,
+            as: "cookcomment",
             attributes: ["starpoint", "comment"],
             include: [
-              { model: db.users, as: "comments", attributes: ["userid"] },
+              { model: db.Users, as: "cookcomment", attributes: ["userid"] },
             ],
           },
         ],

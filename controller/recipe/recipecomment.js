@@ -9,7 +9,7 @@ module.exports = {
           title: title
         }
       }).then((data) => {
-        db.comments.create({
+        db.cookcomment.create({
           starpoint: starpoint,
           comment: comment,
           userid: req.session.session_id,
