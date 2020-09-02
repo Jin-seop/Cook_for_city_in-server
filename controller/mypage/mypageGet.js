@@ -4,7 +4,7 @@ const recipe = require("../recipe");
 
 module.exports = {
   // 회원정보 마이페이지 요청
-  post: (req, res) => {
+  get: (req, res) => {
     // 저장된 세션아이디 확인
     if (req.session.session_id) {
       db.users.findAll({
