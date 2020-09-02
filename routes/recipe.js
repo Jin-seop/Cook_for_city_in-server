@@ -24,4 +24,7 @@ router.post("/recipefavorites", recipeController.recipefavorites.post);
 
 router.put("/recipefavoritesdelete", recipeController.recipefavoritesdelete.put);
 
+//제철제료 표시
+router.get("/materials", recipeController.materials.get)
+
 module.exports = router;
