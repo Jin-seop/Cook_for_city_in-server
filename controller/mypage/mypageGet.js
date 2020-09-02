@@ -10,18 +10,17 @@ module.exports = {
       db.users.findAll({
         where: { id: req.session.session_id },
         attributes: ["userid"],
-
         include: [
           {
-            model: db.favorites,
-            as: "favorites",
-            attributes: ["recipeid"]
-          }
-          // {
-          //   model: db.comments,
-          //   as: "comments",
-          //   attributes: ["starpoint","comment"],
-          // },
+            model : db.recipe,
+            as : "Recipe",
+            attributes : ["id", "title"],
+          },
+          {
+            model: db.comments,
+            as: "comments",
+            attributes: ["starpoint","comment"],
+          },
         ],
       }).then((userInfo) => {
         if (userInfo) {
