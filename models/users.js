@@ -28,8 +28,17 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
+    hooks: {
+      afterValidate: (data, options) => {
+        let secret1 = "쿡시인화이팅";
+        const hash = crypto.createHmac("sha1", secret1);
+        hash.update(data.password);
+        data.password = hash.digest("hex");
+      },
+    },
     sequelize,
-    modelName: 'users',
-  });
+    modelName: "users",
+  }
+);
   return users;
 };
