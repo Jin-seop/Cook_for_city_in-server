@@ -10,7 +10,7 @@ module.exports = {
             meterial : { 
                 [Op.like] : "%" + meterial + "%"}
           },
-          limit : 15
+          limit : req.body.count * 10
       }).then((recipesearch) => {
           res.status(200).send(recipesearch);
       }).catch(function (e) {
