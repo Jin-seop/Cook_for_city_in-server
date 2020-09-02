@@ -4,7 +4,7 @@ const router = express.Router();
 const { mypageController } = require("../controller");
 
 //회원정보 마이페이지
-router.post("/mypageGet", mypageController.mypageGet.post)
+router.get("/mypageGet", mypageController.mypageGet.get)
 
 //내가 쓴 댓글이 해당되는 게시글로 이동
 router.post("/mypagetocomment", mypageController.mypagetocomment.post)
