@@ -7,7 +7,7 @@ module.exports = {
   get: (req, res) => {
     // 저장된 세션아이디 확인
     if (req.session.session_id) {
-      db.users.findAll({
+      db.Users.findAll({
         where: { id: req.session.session_id },
         attributes: ["userid"],
         include: [
@@ -17,7 +17,7 @@ module.exports = {
             attributes : ["id", "title"],
           },
           {
-            model: db.comments,
+            model: db.cookcomment,
             as: "comments",
             attributes: ["starpoint","comment"],
           },

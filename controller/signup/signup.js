@@ -5,13 +5,13 @@ module.exports = {
   post: (req, res) => {
       const {userid, password, email} = req.body;
 
-    db.users.findOne({ 
+    db.Users.findOne({ 
       where: { 
         userid: userid 
       } 
     }).then((checkUserId) => {
         if (!checkUserId) {
-          db.users.create({
+          db.Users.create({
             userid: userid,
             password: password,
             email: email,

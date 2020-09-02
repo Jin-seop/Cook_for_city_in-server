@@ -5,9 +5,9 @@ module.exports = {
     patch: (req, res) => {
         const deleted = "deleted";
         if (req.session.session_id) {
-            db.users.findOne({ where: { id: req.session.session_id } }).then(
+            db.Users.findOne({ where: { id: req.session.session_id } }).then(
                 (userData) => {
-                    db.users.update(
+                    db.Users.update(
                         {
                             userid: deleted,
                             email: userData.email,

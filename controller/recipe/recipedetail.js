@@ -16,9 +16,10 @@ module.exports = {
               "recipe_img"
             ],
         include : [
-            {model : db.users, as: "users", attributes: ["userid"]},
-            {model : db.comments, as: "comments", attributes: ["id","starpoint", "comment", "createdAt"],
-          include : [{model : db.users, as :"comments", attributes: ["userid"]}]}
+            {model : db.Users, as: "Users", attributes: ["userid"]},
+            {model : db.cookcomment, as: "comments", attributes: ["id","starpoint", "comment", "createdAt"],
+          include : [{model : db.Users, as :"cookcomment", attributes: ["userid"]}]
+        }
         ]
       }).then((recipedetail) => {
           if(recipedetail){
