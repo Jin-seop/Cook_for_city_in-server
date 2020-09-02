@@ -12,4 +12,9 @@ router.post("/mypagetocomment", mypageController.mypagetocomment.post)
 //즐겨찾기 해당페이지로 디동
 router.post("/mypagetofavorites", mypageController.mypagetofavorites.post)
 
+//회원탈퇴 요청
+router.patch("/Leave", mypageController.Leave.patch)
+
+//회원 정보 수정
+router.put("/setupPut", mypageController.setupPut.put)
 module.exports = router;

@@ -35,58 +35,6 @@ app.use("/a", (req, res) => {
   res.send("Welcome to Man's Club");
 });
 
-const materials = require("./seasonal materials.json");
-//게시판 제철재료 표시
-app.get("/recipe/materials", (req, res) => {
-  let date_value = new Date();
-  console.log(date_value.getMonth())
-  if (!req.session.session_id) {
-    res.status(404).send("다시 시도해 주세요");
-  } else {
-    res.status(201).send(materials[date_value.getMonth()]);
-  }
-})
-
-// 회원 탈퇴 요청
-app.patch("/mypage/Leave", (req, res) => {
-  const deleted = "deleted";
-  if (req.session.session_id) {
-    db.users.findOne({ where: { id: req.session.session_id } }).then(
-      (userData) => {
-        db.users.update(
-          {
-            userid: deleted,
-            email: userData.email,
-            password: userData.password,
-          },
-          { where: { id: req.session.session_id } }
-        ).then((result) => {
-          req.session.destroy();
-          res.status(200).send(result);
-        });
-      }
-    );
-  } else {
-    res.status(404).send("잘못된 요청입니다. 다시 시도해 주시기 바랍니다.");
-  }
-});
-// 유저 정보 수정
-app.put(("/mypage/setupPut"), (req, res) => {
-  if (req.session.session_id) {
-    db.users.update(
-      {
-        userid: req.body.userid,
-        password: req.body.password,
-        email: req.body.email,
-      },
-      { where: { id: req.session.session_id } }
-    ).then((modified) => {
-      res.status(201).send(modified);
-    });
-  } else {
-    res.status(404).send("잘못 요청하셨습니다. 다시 시도해 주시기 바랍니다.");
-  }
-})
 
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
