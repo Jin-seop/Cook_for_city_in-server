@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       afterValidate: (data, options) => {
-        let secret1 = "쿡시인화이팅";
+        let secret1 = "도시인화이팅";
         const hash = crypto.createHmac("sha1", secret1);
         hash.update(data.password);
         data.password = hash.digest("hex");
