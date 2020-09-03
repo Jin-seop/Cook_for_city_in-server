@@ -5,8 +5,9 @@ module.exports = {
     const { id } = req.body
     if (req.session.session_id) {
       db.recipe.findOne({
-        where: { id: id }
+        where: { id: id } 
       }).then((data) => {
+        console.log(data)
         db.favorites.destroy({
           where: { recipeid: data.id }
         }).then((result) => {
