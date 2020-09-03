@@ -9,7 +9,7 @@ module.exports = {
                 where: { id: id }
             }).then((data) => {
                 db.cookcomment.destroy({
-                    where: { recipeid: data.id }
+                    where: { id: data.id }
                 }).then((result) => {
                     res.status(200).send("삭제완료")
                 })
