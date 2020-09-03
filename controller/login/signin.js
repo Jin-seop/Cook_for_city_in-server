@@ -6,7 +6,7 @@ module.exports = {
   post: (req, res) => {
     // 로그인 요청시 입력된 비밀번호를 헤싱합니다.
     const { userid } = req.body
-    let secret1 = "쿡시인화이팅";
+    let secret1 = "도시인화이팅";
     const hash = crypto.createHmac("sha1", secret1);
     hash.update(req.body.password);
     let passwordHashed = hash.digest("hex");
