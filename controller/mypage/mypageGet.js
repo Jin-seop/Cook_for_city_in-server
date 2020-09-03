@@ -12,14 +12,14 @@ module.exports = {
         attributes: ["userid"],
         include: [
           {
-            model : db.recipe,
-            as : "Recipe",
-            attributes : ["id", "title"],
+            model: db.recipe,
+            as: "Recipe",
+            attributes: ["id", "title"],
           },
           {
             model: db.cookcomment,
-            as: "comments",
-            attributes: ["starpoint","comment"],
+            as: "cookcomment",
+            attributes: ["starpoint", "comment"],
           },
         ],
       }).then((userInfo) => {
