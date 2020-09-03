@@ -19,7 +19,14 @@ module.exports = {
           {
             model: db.cookcomment,
             as: "cookcomment",
-            attributes: ["starpoint", "comment"],
+            attributes: ["starpoint", "comment",],
+            include: [
+              {
+                model: db.recipe,
+                as: "cookcommentrecipe",
+                attributes: ["title"]
+              }
+            ]
           },
         ],
       }).then((userInfo) => {
