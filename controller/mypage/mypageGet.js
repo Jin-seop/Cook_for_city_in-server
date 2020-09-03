@@ -9,7 +9,7 @@ module.exports = {
     if (req.session.session_id) {
       db.Users.findAll({
         where: { id: req.session.session_id },
-        attributes: ["userid"],
+        attributes: ["userId"],
         include: [
           {
             model: db.recipe,
