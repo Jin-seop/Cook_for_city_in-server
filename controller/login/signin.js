@@ -16,7 +16,8 @@ module.exports = {
         if (checkUser) {
           if (checkUser.password === passwordHashed) {
             // session 객체에 유저 id 추가
-            req.session.session_id = checkUser.id;
+            req.session.session_id = checkUser.id,
+              req.session.session_userid = checkUser.userId
             // 해당 session을 저장, 보내주기
             if (req.session.session_id) {
               res.status(201).send({ id: checkUser.id });
