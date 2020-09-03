@@ -2,8 +2,9 @@ const db = require("../../models");
 
 module.exports = {
     put: (req, res) => {
+        console.log(req.session)
         const { id } = req.body
-        if (req.session.session_id === 1) {
+        if (req.session.session_userid === 'admin') {
             db.cookcomment.findOne({
                 where: { id: id }
             }).then((data) => {
