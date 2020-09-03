@@ -12,21 +12,21 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.cookcomment.belongsTo(models.Users, {
-        foreignKey : 'userid',
-        as : 'cookcomment'
+        foreignKey: 'userid',
+        as: 'cookcomment'
       })
 
       models.cookcomment.belongsTo(models.recipe, {
-        foreignKey : 'recipeid',
-        as : 'cookcommentrecipe'
+        foreignKey: 'recipeid',
+        as: 'cookcommentrecipe'
       })
     }
   };
   cookcomment.init({
     starpoint: DataTypes.INTEGER,
     comment: DataTypes.STRING,
-    userid : DataTypes.INTEGER,
-    recipeid : DataTypes.INTEGER
+    userid: DataTypes.INTEGER,
+    recipeid: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'cookcomment',
