@@ -5,13 +5,13 @@ module.exports = {
   // 로그인 요청
   post: (req, res) => {
     // 로그인 요청시 입력된 비밀번호를 헤싱합니다.
-    const { userid } = req.body
+    const { userId } = req.body
     let secret1 = "도시인화이팅";
     const hash = crypto.createHmac("sha1", secret1);
     hash.update(req.body.password);
     let passwordHashed = hash.digest("hex");
 
-    db.Users.findOne({ where: { userid: userid } }).then(
+    db.Users.findOne({ where: { userId: userId } }).then(
       (checkUser) => {
         if (checkUser) {
           if (checkUser.password === passwordHashed) {

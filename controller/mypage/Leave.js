@@ -9,7 +9,7 @@ module.exports = {
                 (userData) => {
                     db.Users.update(
                         {
-                            userid: deleted,
+                            userId: deleted,
                             email: userData.email,
                             password: userData.password,
                         },

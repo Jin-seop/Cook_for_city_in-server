@@ -5,7 +5,7 @@ module.exports = {
         if (req.session.session_id) {
             db.Users.update(
                 {
-                    userid: req.body.userid,
+                    userId: req.body.userId,
                     password: req.body.password,
                     email: req.body.email,
                 },
