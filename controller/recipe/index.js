@@ -7,5 +7,6 @@ module.exports = {
   recipecommentupdate: require("./recipecommentupdate"),
   recipefavorites: require("./recipefavorites"),
   recipefavoritesdelete: require("./recipefavoritesdelete"),
-  materials: require("./materials")
+  materials: require("./materials"),
+  admincommentdelete: require("./admincommentdelete")
 };
