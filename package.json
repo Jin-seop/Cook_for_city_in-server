@@ -1,0 +1,32 @@
+{
+  "name": "cook.si.in-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leegiman911/Cook.Si.In-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leegiman911/Cook.Si.In-server/issues"
+  },
+  "homepage": "https://github.com/leegiman911/Cook.Si.In-server#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "eslint": "7.7.0",
+    "express": "4.17.1",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-redis": "^5.0.11",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.3.4"
+  }
+}
